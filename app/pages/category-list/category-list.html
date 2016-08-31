@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="category-list">
+  <ion-list>
+    <ion-item *ngFor="let category of list" (click)="openCategory(category)">
+      <h2>{{category.name}}</h2>
+      <ion-badge item-right primary>{{category.count}}</ion-badge>  
+    </ion-item>  
+  </ion-list>
+</ion-content>

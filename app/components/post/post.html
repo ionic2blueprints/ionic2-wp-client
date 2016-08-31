@@ -1,0 +1,40 @@
+<ion-card class="post-cmp">
+    <img [src]="featuredMedia.source_url" *ngIf="featuredMedia.source_url">
+    <ion-item class="post-title" text-wrap>
+        <h1>{{postData.title.rendered}}</h1>
+        <h4 class="date">{{postData.date.substr(0,10)}}</h4>
+    </ion-item>
+    
+    <ion-item>
+        <ion-avatar item-left>
+            <img [src]="authorData.avatar_urls[96]">
+        </ion-avatar>
+        <h2>{{authorData.name}}</h2>
+    </ion-item>
+
+    <ion-card-content>
+        <p [innerHtml]="postData.excerpt.rendered | htmlPipe: 'delete'"></p>
+    </ion-card-content>
+
+     <ion-row no-padding>
+      <ion-col>
+        <button clear small primary (click)="readBtn()">
+          <ion-icon name='book'></ion-icon>
+          Read
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button clear small primary (click)="favoriteBtn()">
+          <ion-icon name='bookmark'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      
+      <ion-col text-right>
+        <button clear small primary (click)="shareBtn()">
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+</ion-card>

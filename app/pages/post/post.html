@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Post</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="post">
+  <ion-list>
+    <ion-card>
+        <img [src]="postData.media.source_url" *ngIf="postData.media.source_url">
+        <ion-item class="post-title" text-wrap>
+            <h1>{{postData.post.title.rendered}}</h1>
+            <h4 class="date">{{postData.post.date.substr(0,10)}}</h4>
+        </ion-item>
+        
+        <ion-item>
+            <ion-avatar item-left>
+                <img [src]="postData.author.avatar_urls[96]">
+            </ion-avatar>
+            <h2>{{postData.author.name}}</h2> 
+        </ion-item>
+    </ion-card>
+
+    <ion-card text-wrap *ngIf="postData.post.content.rendered">
+        <p padding [innerHtml]="postData.post.content.rendered | htmlPipe:'change'"></p>
+    </ion-card>
+
+<ion-list *ngIf="postData.comments">
+  <ion-item-divider light>Comments</ion-item-divider>
+  <ion-item text-wrap *ngFor="let comment of postData.comments">
+    <ion-avatar item-left>
+      <img [src]="comment.author_avatar_urls['96']">
+    </ion-avatar>
+    <h2>{{comment.author_name}}</h2>
+    <p [innerHTML]="comment.content.rendered | htmlPipe: 'change'"></p>
+  </ion-item>
+</ion-list>
+  </ion-list>
+</ion-content>

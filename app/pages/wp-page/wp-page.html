@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar primary>
+        <ion-title>{{page.title.rendered}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item text-wrap>
+        <p [innerHTML]="page.content.rendered | htmlPipe:'change'"></p>
+    </ion-item>
+</ion-content>

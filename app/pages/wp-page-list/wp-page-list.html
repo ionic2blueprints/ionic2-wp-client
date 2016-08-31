@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-navbar primary>
+        <ion-title>Pages</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <a ion-item *ngFor="let page of pages" (click)="openPage(page)">
+            {{page.title.rendered}}
+        </a>
+    </ion-list>
+</ion-content>
